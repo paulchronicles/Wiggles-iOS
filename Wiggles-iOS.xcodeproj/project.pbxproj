@@ -27,6 +27,16 @@
 		73E4B4D925EE75B10020C282 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4B4D825EE75B10020C282 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C8A5B4B12E43EC6700D136DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73CEC9D825EE0A8F008362CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73CEC9DF25EE0A8F008362CE;
+			remoteInfo = "Wiggles-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		73CEC9E025EE0A8F008362CE /* Wiggles-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wiggles-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CEC9E325EE0A8F008362CE /* Wiggles_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiggles_iOSApp.swift; sourceTree = "<group>"; };
@@ -48,10 +58,22 @@
 		73CECA2F25EE3A76008362CE /* DogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogData.swift; sourceTree = "<group>"; };
 		73CECA3425EE416C008362CE /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		73E4B4D825EE75B10020C282 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		C8A5B4AB2E43EC6700D136DD /* Wiggles-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wiggles-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C8A5B4AC2E43EC6700D136DD /* Wiggles-iOSUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Wiggles-iOSUITests"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		73CEC9DD25EE0A8F008362CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A5B4A82E43EC6700D136DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				73CEC9E225EE0A8F008362CE /* Wiggles-iOS */,
+				C8A5B4AC2E43EC6700D136DD /* Wiggles-iOSUITests */,
 				73CEC9E125EE0A8F008362CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				73CEC9E025EE0A8F008362CE /* Wiggles-iOS.app */,
+				C8A5B4AB2E43EC6700D136DD /* Wiggles-iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,17 +203,44 @@
 			productReference = 73CEC9E025EE0A8F008362CE /* Wiggles-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C8A5B4AA2E43EC6700D136DD /* Wiggles-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8A5B4B32E43EC6700D136DD /* Build configuration list for PBXNativeTarget "Wiggles-iOSUITests" */;
+			buildPhases = (
+				C8A5B4A72E43EC6700D136DD /* Sources */,
+				C8A5B4A82E43EC6700D136DD /* Frameworks */,
+				C8A5B4A92E43EC6700D136DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8A5B4B22E43EC6700D136DD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C8A5B4AC2E43EC6700D136DD /* Wiggles-iOSUITests */,
+			);
+			name = "Wiggles-iOSUITests";
+			packageProductDependencies = (
+			);
+			productName = "Wiggles-iOSUITests";
+			productReference = C8A5B4AB2E43EC6700D136DD /* Wiggles-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		73CEC9D825EE0A8F008362CE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					73CEC9DF25EE0A8F008362CE = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					C8A5B4AA2E43EC6700D136DD = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 73CEC9DF25EE0A8F008362CE;
 					};
 				};
 			};
@@ -207,6 +258,7 @@
 			projectRoot = "";
 			targets = (
 				73CEC9DF25EE0A8F008362CE /* Wiggles-iOS */,
+				C8A5B4AA2E43EC6700D136DD /* Wiggles-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -221,6 +273,13 @@
 				73CEC9EB25EE0A92008362CE /* Preview Assets.xcassets in Resources */,
 				73CECA1825EE1F30008362CE /* Sailec.ttf in Resources */,
 				73CEC9E825EE0A92008362CE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A5B4A92E43EC6700D136DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +306,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8A5B4A72E43EC6700D136DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8A5B4B22E43EC6700D136DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73CEC9DF25EE0A8F008362CE /* Wiggles-iOS */;
+			targetProxy = C8A5B4B12E43EC6700D136DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		73CEC9ED25EE0A92008362CE /* Debug */ = {
@@ -371,9 +445,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Wiggles-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = GY8LXNR38D;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Wiggles-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -383,6 +457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.femargent.Wiggles-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -393,9 +468,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Wiggles-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = GY8LXNR38D;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Wiggles-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -405,8 +480,54 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.femargent.Wiggles-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8A5B4B42E43EC6700D136DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.femargent.Wiggles-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Wiggles-iOS";
+			};
+			name = Debug;
+		};
+		C8A5B4B52E43EC6700D136DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.femargent.Wiggles-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Wiggles-iOS";
 			};
 			name = Release;
 		};
@@ -427,6 +548,15 @@
 			buildConfigurations = (
 				73CEC9F025EE0A92008362CE /* Debug */,
 				73CEC9F125EE0A92008362CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8A5B4B32E43EC6700D136DD /* Build configuration list for PBXNativeTarget "Wiggles-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8A5B4B42E43EC6700D136DD /* Debug */,
+				C8A5B4B52E43EC6700D136DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

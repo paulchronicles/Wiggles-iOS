@@ -24,11 +24,24 @@ struct DetailsView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         ZStack(alignment: .top) {
-                            Image(viewModel.model.image).resizable()
-                                .frame(height: 400).frame(maxWidth: .infinity)
+                            Image(viewModel.model.image)
+                                .resizable()
+                                .frame(height: 400)
+                                .frame(maxWidth: .infinity)
+                                .accessibilityElement()
+                                .accessibilityIdentifier(viewModel.model.image)
+                                .accessibilityLabel("puppy image")
                             HStack {
-                                Button(action: { self.presentationMode.wrappedValue.dismiss() },
-                                       label: { Image(IMAGE_BACK_ICON).resizable().frame(width: 34, height: 34) })
+                                Button(action: {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                },
+                                       label: {
+                                    Image(IMAGE_BACK_ICON)
+                                        .resizable()
+                                        .frame(width: 34, height: 34)
+                                    
+                                })
+                                .accessibilityIdentifier("backButton")
                                 Spacer()
                                 Button(action: { viewModel.favouriteMethod() },
                                        label: { Image(IMAGE_FAV_ICON).resizable().frame(width: 26, height: 26) })
@@ -36,8 +49,11 @@ struct DetailsView: View {
                         }
                         Group {
                             HStack {
-                                Text(viewModel.model.name).modifier(SailecFont(.bold, size: 24)).lineLimit(1)
+                                Text(viewModel.model.name)
+                                    .modifier(SailecFont(.bold, size: 24))
+                                    .lineLimit(1)
                                     .foregroundColor(Color.text_primary_color)
+                                    .accessibilityIdentifier("puppyDetail_name")
                                 Spacer()
                                 GenderView(isMale: viewModel.model.gender == "male")
                             }.padding(.vertical, 8)

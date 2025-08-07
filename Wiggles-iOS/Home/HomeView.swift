@@ -19,27 +19,40 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text("Hey Sameer,").modifier(SailecFont(.bold, size: 24))
-                                    .foregroundColor(Color.text_primary_color).padding(.top, 16)
-                                Text("Adopt a new friend near you!").modifier(SailecFont(.regular, size: 18))
-                                    .foregroundColor(Color.text_primary_color).padding(.top, 4)
+                                Text("Hey Sameer,")
+                                    .modifier(SailecFont(.bold, size: 24))
+                                    .foregroundColor(Color.text_primary_color)
+                                    .padding(.top, 16)
+                                Text("Adopt a new friend near you!")
+                                    .modifier(SailecFont(.regular, size: 18))
+                                    .foregroundColor(Color.text_primary_color)
+                                    .padding(.top, 4)
                             }
                             Spacer()
                         }
-                        Text("Nearby results").modifier(SailecFont(.bold, size: 14))
+                        Text("Nearby results")
+                            .modifier(SailecFont(.bold, size: 14))
                             .foregroundColor(Color.text_primary_color)
                             .padding(.top, 24).padding(.bottom, 8)
-                        ForEach(viewModel.dogsList) { model in
-                            NavigationLink(destination: DetailsView(model: model), label: {
-                                HomeListModelView(image: model.image, name: model.name, age: model.age,
-                                                  about: model.about, location: model.location, gender: model.gender).padding(.bottom, 4)
-                            })
+                        if viewModel.dogsList.isEmpty {
+                            Text("No puppies available")
+                                .accessibilityIdentifier("emptyState")
+                        } else {
+                            ForEach(Array(viewModel.dogsList.enumerated()), id: \.1.id) { index, model in
+                                NavigationLink(destination: DetailsView(model: model), label: {
+                                    HomeListModelView(image: model.image, name: model.name, age: model.age,
+                                                      about: model.about, location: model.location, gender: model.gender)
+                                    .padding(.bottom, 4)
+                                    .accessibilityIdentifier("puppyCell_\(index)")
+                                })
+                            }
                         }
                     }
                     Spacer()
                     Spacer().frame(height: 150)
                 }
-                .padding(.horizontal, 16).padding(.top, 1)
+                .padding(.horizontal, 16)
+                .padding(.top, 1)
                 .navigationBarHidden(true)
             }
         }
@@ -56,18 +69,34 @@ struct HomeListModelView: View {
             Image(image)
                 .resizable().scaledToFill()
                 .frame(width: 100, height: 100).cornerRadius(16)
+//                .accessibilityIdentifier("puppyImage_\(name)")
+                .accessibilityIdentifier("puppyDetail_image")
             VStack(alignment: .leading, spacing: 12) {
-                Text(name).lineLimit(1).modifier(SailecFont(.medium, size: 20)).foregroundColor(Color.text_primary_color)
-                Text("\(age) yrs | \(about)").lineLimit(1).modifier(SailecFont(.regular, size: 14)).foregroundColor(Color.text_primary_color)
+                Text(name)
+                    .lineLimit(1)
+                    .modifier(SailecFont(.medium, size: 20))
+                    .foregroundColor(Color.text_primary_color)
+//                    .accessibilityIdentifier("puppyName_\(name)")
+                Text("\(age) yrs | \(about)")
+                    .lineLimit(1)
+                    .modifier(SailecFont(.regular, size: 14))
+                    .foregroundColor(Color.text_primary_color)
+//                    .accessibilityIdentifier("puppyAbout_\(name)")
                 HStack(alignment: .center, spacing: 2) {
-                    Image(IMAGE_LOC_ICON).resizable().frame(width: 20, height: 20)
-                    Text("\(location) away").modifier(SailecFont(.regular, size: 14))
-                        .foregroundColor(Color.text_primary_color).padding(.top, 2)
+                    Image(IMAGE_LOC_ICON)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                    Text("\(location) away")
+                        .modifier(SailecFont(.regular, size: 14))
+                        .foregroundColor(Color.text_primary_color)
+                        .padding(.top, 2)
+//                        .accessibilityIdentifier("puppyLocation_\(name)")
                 }
             }
             Spacer()
             VStack(alignment: .trailing) {
                 GenderView(isMale: gender == "male")
+//                    .accessibilityIdentifier("puppyGender_\(name)")
                 Spacer()
                 Text("12 min ago").modifier(SailecFont(.regular, size: 12))
                     .foregroundColor(Color.text_primary_color)
@@ -76,6 +105,7 @@ struct HomeListModelView: View {
         .padding(16)
         .background(Color.secondary_color)
         .cornerRadius(16)
+//        .accessibilityIdentifier("puppyCard_\(name)")
     }
 }
 
