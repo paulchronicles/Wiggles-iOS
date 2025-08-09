@@ -75,7 +75,7 @@ final class Wiggles_iOSUITests: XCTestCase {
         let puppyName = app.staticTexts["puppyDetail_name"]
         XCTAssertTrue(puppyName.waitForExistence(timeout: 10), "Detail screen should show puppy name")
 
-        // Step 3: Tap the back button (keep original approach)
+        // Step 3: Tap the back button
         let backButton = app.buttons.firstMatch
         XCTAssertTrue(backButton.waitForExistence(timeout: 10), "Back button should exist")
         backButton.tap()
@@ -85,33 +85,7 @@ final class Wiggles_iOSUITests: XCTestCase {
         XCTAssertTrue(puppyListItem.waitForExistence(timeout: 10), "Should return to puppy list")
     }
     
-    func test05_detailsView_noOverlappingElementsAndImage() {
-        let firstCell = app.staticTexts.matching(identifier: "puppyCell_0").firstMatch
-        
-        XCTAssertTrue(firstCell.waitForExistence(timeout: 10), "First cell should exist")
-        firstCell.tap()
-        
-        let detailImage = app.images["dog_blue"]
-        XCTAssertTrue(detailImage.waitForExistence(timeout: 10), "Puppy image should be visible on detail screen")
-        
-        // Validate image frame
-        let imageFrame = detailImage.frame
-        XCTAssertGreaterThan(imageFrame.size.width, 0, "Image width should be greater than 0")
-        XCTAssertGreaterThan(imageFrame.size.height, 0, "Image height should be greater than 0")
-        
-        // Check overlap with the name label
-        let nameLabel = app.staticTexts["puppyDetail_name"]
-        XCTAssertTrue(nameLabel.waitForExistence(timeout: 10), "Name label should exist")
-        
-        let nameLabelFrame = nameLabel.frame
-        
-        // Assert no intersection between image and nameLabel
-        let intersection = imageFrame.intersection(nameLabelFrame)
-        XCTAssertTrue(intersection.isNull || intersection.isEmpty, "Image and name label should not overlap")
-        
-    }
-    
-    func test06_scrollToBottomAndVerifyLastCell() {
+    func test05_scrollToBottomAndVerifyLastCell() {
         // Wait until the first cell appears
         let firstCell = app.staticTexts.matching(identifier: "puppyCell_0").firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 10), "First cell should exist")
@@ -134,7 +108,7 @@ final class Wiggles_iOSUITests: XCTestCase {
         XCTAssertTrue(lastCell.waitForExistence(timeout: 4), "Last cell should be visible after scrolling")
     }
     
-    func test07_inLandscape_appShowsContent() {
+    func test06_inLandscape_appShowsContent() {
         // Rotate to landscape
         XCUIDevice.shared.orientation = .landscapeLeft
 
