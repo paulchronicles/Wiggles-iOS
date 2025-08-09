@@ -69,19 +69,16 @@ struct HomeListModelView: View {
             Image(image)
                 .resizable().scaledToFill()
                 .frame(width: 100, height: 100).cornerRadius(16)
-//                .accessibilityIdentifier("puppyImage_\(name)")
                 .accessibilityIdentifier("puppyDetail_image")
             VStack(alignment: .leading, spacing: 12) {
                 Text(name)
                     .lineLimit(1)
                     .modifier(SailecFont(.medium, size: 20))
                     .foregroundColor(Color.text_primary_color)
-//                    .accessibilityIdentifier("puppyName_\(name)")
                 Text("\(age) yrs | \(about)")
                     .lineLimit(1)
                     .modifier(SailecFont(.regular, size: 14))
                     .foregroundColor(Color.text_primary_color)
-//                    .accessibilityIdentifier("puppyAbout_\(name)")
                 HStack(alignment: .center, spacing: 2) {
                     Image(IMAGE_LOC_ICON)
                         .resizable()
@@ -90,13 +87,11 @@ struct HomeListModelView: View {
                         .modifier(SailecFont(.regular, size: 14))
                         .foregroundColor(Color.text_primary_color)
                         .padding(.top, 2)
-//                        .accessibilityIdentifier("puppyLocation_\(name)")
                 }
             }
             Spacer()
             VStack(alignment: .trailing) {
                 GenderView(isMale: gender == "male")
-//                    .accessibilityIdentifier("puppyGender_\(name)")
                 Spacer()
                 Text("12 min ago").modifier(SailecFont(.regular, size: 12))
                     .foregroundColor(Color.text_primary_color)
@@ -105,7 +100,6 @@ struct HomeListModelView: View {
         .padding(16)
         .background(Color.secondary_color)
         .cornerRadius(16)
-//        .accessibilityIdentifier("puppyCard_\(name)")
     }
 }
 

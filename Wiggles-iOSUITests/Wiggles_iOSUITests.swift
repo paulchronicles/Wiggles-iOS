@@ -11,20 +11,14 @@ final class Wiggles_iOSUITests: XCTestCase {
     var app: XCUIApplication!
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+    
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         app = XCUIApplication()
-        // Use a test environment flag if app supports it (recommended)
         app.launchEnvironment = ["UITest": "1"]
         app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         app.terminate()
         app = nil
     }
@@ -52,7 +46,7 @@ final class Wiggles_iOSUITests: XCTestCase {
         // Wait for the element
         let cellAppeared = waitForElement(firstCell)
         
-        // Assert that either the cell appeared, or handle the case where there are no items
+        // Assert that the cell appeared
         XCTAssertTrue(cellAppeared, "Expected at least one puppy cell to be visible")
     }
     
@@ -125,8 +119,8 @@ final class Wiggles_iOSUITests: XCTestCase {
         let firstCell = app.staticTexts.matching(identifier: "puppyCell_0").firstMatch
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "First cell should exist")
 
-        // Get a reference to the last possible cell index — you might need to adjust this based on your list size
-        let lastIndex = 5 // Change if your list has more or fewer cells
+        // Get a reference to the last possible cell index
+        let lastIndex = 5
         let lastCellIdentifier = "puppyCell_\(lastIndex)"
         let lastCell = app.staticTexts[lastCellIdentifier]
 
@@ -139,8 +133,8 @@ final class Wiggles_iOSUITests: XCTestCase {
             swipeAttempts += 1
         }
 
-        // Assert that the last cell is now visible
-        XCTAssertTrue(lastCell.waitForExistence(timeout: 3), "Last cell should exist after scrolling")
+        // Assert that the last cell is visible
+        XCTAssertTrue(lastCell.waitForExistence(timeout: 3), "Last cell should be visible after scrolling")
     }
     
     // MARK: - Helpers
@@ -150,22 +144,5 @@ final class Wiggles_iOSUITests: XCTestCase {
         let expectation = XCTNSPredicateExpectation(predicate: exists, object: element)
         let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
         return result == .completed
-    }
-
-    func elementFrame(_ element: XCUIElement) -> CGRect {
-        return element.frame
-    }
-
-    func assertNoOverlap(_ elements: [XCUIElement], file: StaticString = #file, line: UInt = #line) {
-        for i in 0 ..< elements.count {
-            for j in i+1 ..< elements.count {
-                let a = elements[i]
-                let b = elements[j]
-                if a.exists && b.exists {
-                    let intersects = elementFrame(a).intersects(elementFrame(b))
-                    XCTAssertFalse(intersects, "Elements \(a) and \(b) overlap", file: file, line: line)
-                }
-            }
-        }
     }
 }
